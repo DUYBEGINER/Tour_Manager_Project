@@ -5,6 +5,7 @@
 package View;
 
 import DAO.UserDAO;
+import View_Custom_pannel.ItemOrderTour;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -23,9 +24,11 @@ public class MAIN_UI extends javax.swing.JFrame {
      */
     public MAIN_UI() {
 
+        JScrollPane jp;
         initComponents();
+
         this.setDefalutComponent();
-        this.setLocationRelativeTo(null);
+
     }
 
     /**
@@ -41,22 +44,37 @@ public class MAIN_UI extends javax.swing.JFrame {
         TaskBarPanel = new javax.swing.JPanel();
         Order_Taskbar = new View_Custom_pannel.Round_Rect_Button_Logo();
         Leaderboard_Taskbar = new View_Custom_pannel.Round_Rect_Button_Logo();
+        jButton1 = new javax.swing.JButton();
         LogoPanel = new javax.swing.JPanel();
+        searchField1 = new View_Custom_pannel.SearchField();
         Logo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        circle1 = new View_Custom_pannel.Circle();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        roundRect1 = new View_Custom_pannel.RoundRect();
         CenterPanel = new javax.swing.JPanel();
+        Abovepanel = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        ListTourPanel = new javax.swing.JPanel();
+        itemOrderTour1 = new View_Custom_pannel.ItemOrderTour();
+        jScrollBar1 = new javax.swing.JScrollBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
-        setPreferredSize(new java.awt.Dimension(2560, 1600));
+        setMaximumSize(new java.awt.Dimension(2560, 1440));
 
+        panelRoot.setMaximumSize(new java.awt.Dimension(2560, 1440));
+        panelRoot.setMinimumSize(new java.awt.Dimension(2560, 1440));
+        panelRoot.setPreferredSize(new java.awt.Dimension(2560, 1440));
         panelRoot.setLayout(new java.awt.BorderLayout());
 
         TaskBarPanel.setBackground(new java.awt.Color(39, 49, 66));
-        TaskBarPanel.setPreferredSize(new java.awt.Dimension(240, 0));
+        TaskBarPanel.setMaximumSize(new java.awt.Dimension(240, 1370));
+        TaskBarPanel.setMinimumSize(new java.awt.Dimension(240, 1370));
+        TaskBarPanel.setPreferredSize(new java.awt.Dimension(240, 1370));
 
         Order_Taskbar.setBackground(new java.awt.Color(39, 49, 66));
         TaskBarPanel.add(Order_Taskbar);
@@ -64,12 +82,33 @@ public class MAIN_UI extends javax.swing.JFrame {
         Leaderboard_Taskbar.setBackground(new java.awt.Color(39, 49, 66));
         TaskBarPanel.add(Leaderboard_Taskbar);
 
+        jButton1.setText("jButton1");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        TaskBarPanel.add(jButton1);
+
         panelRoot.add(TaskBarPanel, java.awt.BorderLayout.WEST);
 
         LogoPanel.setBackground(new java.awt.Color(39, 49, 66));
+        LogoPanel.setMaximumSize(new java.awt.Dimension(2560, 70));
+        LogoPanel.setMinimumSize(new java.awt.Dimension(2560, 70));
         LogoPanel.setPreferredSize(new java.awt.Dimension(2560, 70));
 
+        searchField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                searchField1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                searchField1FocusLost(evt);
+            }
+        });
+
         Logo.setBackground(new java.awt.Color(39, 49, 66));
+        Logo.setMaximumSize(new java.awt.Dimension(240, 70));
+        Logo.setMinimumSize(new java.awt.Dimension(240, 70));
 
         jLabel1.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(72, 128, 255));
@@ -93,7 +132,7 @@ public class MAIN_UI extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         LogoLayout.setVerticalGroup(
             LogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,10 +146,31 @@ public class MAIN_UI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dark32x32.png"))); // NOI18N
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        circle1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatar1.jpg"))); // NOI18N
+        circle1.setOpaque(false);
+
+        javax.swing.GroupLayout circle1Layout = new javax.swing.GroupLayout(circle1);
+        circle1.setLayout(circle1Layout);
+        circle1Layout.setHorizontalGroup(
+            circle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 58, Short.MAX_VALUE)
+        );
+        circle1Layout.setVerticalGroup(
+            circle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jLabel6.setFont(new java.awt.Font("Open Sans Medium", 1, 11)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Phạm Phúc Duy");
+
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Admin");
+
+        roundRect1.setBackground(new java.awt.Color(67, 77, 92));
+        roundRect1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                roundRect1MouseClicked(evt);
             }
         });
 
@@ -120,35 +180,80 @@ public class MAIN_UI extends javax.swing.JFrame {
             LogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogoPanelLayout.createSequentialGroup()
                 .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(234, 234, 234)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1988, Short.MAX_VALUE))
+                .addGap(44, 44, 44)
+                .addComponent(searchField1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1292, Short.MAX_VALUE)
+                .addComponent(roundRect1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(214, 214, 214)
+                .addComponent(circle1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(LogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42))
         );
         LogoPanelLayout.setVerticalGroup(
             LogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogoPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(LogoPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogoPanelLayout.createSequentialGroup()
+                .addGroup(LogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(LogoPanelLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, LogoPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(LogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(circle1, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                            .addGroup(LogoPanelLayout.createSequentialGroup()
+                                .addGroup(LogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(searchField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(roundRect1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
 
         panelRoot.add(LogoPanel, java.awt.BorderLayout.PAGE_START);
 
         CenterPanel.setBackground(new java.awt.Color(27, 36, 49));
+        CenterPanel.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout CenterPanelLayout = new javax.swing.GroupLayout(CenterPanel);
-        CenterPanel.setLayout(CenterPanelLayout);
-        CenterPanelLayout.setHorizontalGroup(
-            CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        Abovepanel.setBackground(new java.awt.Color(27, 36, 49));
+        Abovepanel.setMaximumSize(new java.awt.Dimension(2320, 100));
+
+        jLabel5.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("List Tour");
+
+        javax.swing.GroupLayout AbovepanelLayout = new javax.swing.GroupLayout(Abovepanel);
+        Abovepanel.setLayout(AbovepanelLayout);
+        AbovepanelLayout.setHorizontalGroup(
+            AbovepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AbovepanelLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(2120, Short.MAX_VALUE))
         );
-        CenterPanelLayout.setVerticalGroup(
-            CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        AbovepanelLayout.setVerticalGroup(
+            AbovepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AbovepanelLayout.createSequentialGroup()
+                .addGap(0, 34, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        CenterPanel.add(Abovepanel, java.awt.BorderLayout.PAGE_START);
+
+        ListTourPanel.setBackground(new java.awt.Color(27, 36, 49));
+        ListTourPanel.setAutoscrolls(true);
+        ListTourPanel.setMaximumSize(new java.awt.Dimension(32767, 900));
+        ListTourPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 30, 20));
+        ListTourPanel.add(itemOrderTour1);
+
+        CenterPanel.add(ListTourPanel, java.awt.BorderLayout.CENTER);
+        CenterPanel.add(jScrollBar1, java.awt.BorderLayout.LINE_END);
 
         panelRoot.add(CenterPanel, java.awt.BorderLayout.CENTER);
 
@@ -157,46 +262,33 @@ public class MAIN_UI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void searchField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchField1FocusGained
         // TODO add your handling code here:
+        if(searchField1.getText().equals("Search")){
+            searchField1.setText("");
+            searchField1.setForeground(Color.decode("#d6d8dc"));
+        }
+    }//GEN-LAST:event_searchField1FocusGained
 
-        if(i==0){
-            dash(jLabel4);
-            jLabel3.setForeground(Color.decode("#202224"));
-            TaskBarPanel.setBackground(Color.decode("#FFFFFF"));
-            Logo.setBackground(Color.decode("#FFFFFF"));
-            CenterPanel.setBackground(Color.decode("#F5F6FA"));
-            LogoPanel.setBackground(Color.decode("#FFFFFF"));
-            Order_Taskbar.getjLabel1().setForeground(Color.decode("#202224"));
-            Order_Taskbar.setBackground(Color.decode("#FFFFFF"));
-            Order_Taskbar.setLogo(new javax.swing.ImageIcon(getClass().getResource("/orderblack.png")));
-            Leaderboard_Taskbar.getjLabel1().setForeground(Color.decode("#202224"));
-            Leaderboard_Taskbar.setBackground(Color.decode("#FFFFFF"));
-            Leaderboard_Taskbar.setLogo(new javax.swing.ImageIcon(getClass().getResource("/heartblack32.png")));
-            jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lightblack.png")));
-            Order_Taskbar.setColorDefault("#FFFFFF");
-            Leaderboard_Taskbar.setColorDefault("#FFFFFF");
-            i = 1;
-        }
-        else{
-            dash(jLabel4);
-            jLabel3.setForeground(Color.decode("#FFFFF"));
-            TaskBarPanel.setBackground(Color.decode("#273142"));
-            Logo.setBackground(Color.decode("#273142"));
-            CenterPanel.setBackground(Color.decode("#1B2431"));
-            LogoPanel.setBackground(Color.decode("#273142"));
-            Order_Taskbar.getjLabel1().setForeground(Color.decode("#FFFFFF"));
-            Order_Taskbar.setBackground(Color.decode("#273142"));
-            Order_Taskbar.setLogo(new javax.swing.ImageIcon(getClass().getResource("/shop32x32.png")));
-            Leaderboard_Taskbar.getjLabel1().setForeground(Color.decode("#FFFFFF"));
-            Leaderboard_Taskbar.setBackground(Color.decode("#273142"));
-            jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dark32x32.png")));
-            Leaderboard_Taskbar.setLogo(new javax.swing.ImageIcon(getClass().getResource("/heartwhite32.png")));
-            Order_Taskbar.setColorDefault("#273142");
-            Leaderboard_Taskbar.setColorDefault("#273142");
-            i=0;
-        }
-    }//GEN-LAST:event_jLabel4MouseClicked
+    private void searchField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchField1FocusLost
+        // TODO add your handling code here:
+        searchField1.setText("Search");
+        searchField1.setForeground(Color.decode("#d6d8dc"));
+    }//GEN-LAST:event_searchField1FocusLost
+
+    private void roundRect1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roundRect1MouseClicked
+        // TODO add your handling code here:
+       SwitchTheme();
+    }//GEN-LAST:event_roundRect1MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        System.out.println("clicked");
+        ItemOrderTour tmp = new ItemOrderTour();
+        this.ListTourPanel.add(tmp);
+        this.ListTourPanel.revalidate(); // Cập nhật layout
+        this.ListTourPanel.repaint(); // Vẽ lại panel
+    }//GEN-LAST:event_jButton1MouseClicked
     /**
      * @param args the command line arguments
      */
@@ -212,6 +304,8 @@ public class MAIN_UI extends javax.swing.JFrame {
         Leaderboard_Taskbar.setLogo(new javax.swing.ImageIcon(getClass().getResource("/heartwhite32.png")));
         repaint();
     }
+
+
     private int DASH_DURATION = 8;
     private int direction = 1;
     private void dash(JComponent component) {
@@ -237,17 +331,62 @@ public class MAIN_UI extends javax.swing.JFrame {
         timer.start(); // Bắt đầu rung
     }
 
+    public void SwitchTheme(){
+        if(i==0){
+            jLabel3.setForeground(Color.decode("#202224"));
+            TaskBarPanel.setBackground(Color.decode("#FFFFFF"));
+            Logo.setBackground(Color.decode("#FFFFFF"));
+            CenterPanel.setBackground(Color.decode("#F5F6FA"));
+            LogoPanel.setBackground(Color.decode("#FFFFFF"));
+            Order_Taskbar.getjLabel1().setForeground(Color.decode("#202224"));
+            Order_Taskbar.setBackground(Color.decode("#FFFFFF"));
+            Order_Taskbar.setLogo(new javax.swing.ImageIcon(getClass().getResource("/orderblack.png")));
+            Leaderboard_Taskbar.getjLabel1().setForeground(Color.decode("#202224"));
+            Leaderboard_Taskbar.setBackground(Color.decode("#FFFFFF"));
+            Leaderboard_Taskbar.setLogo(new javax.swing.ImageIcon(getClass().getResource("/heartblack32.png")));
+            Order_Taskbar.setColorDefault("#FFFFFF");
+            Leaderboard_Taskbar.setColorDefault("#FFFFFF");
+            i = 1;
+        }
+        else{
+            jLabel3.setForeground(Color.decode("#FFFFFF"));
+            TaskBarPanel.setBackground(Color.decode("#273142"));
+            Logo.setBackground(Color.decode("#273142"));
+            CenterPanel.setBackground(Color.decode("#1B2431"));
+            LogoPanel.setBackground(Color.decode("#273142"));
+            Order_Taskbar.getjLabel1().setForeground(Color.decode("#FFFFFF"));
+            Order_Taskbar.setBackground(Color.decode("#273142"));
+            Order_Taskbar.setLogo(new javax.swing.ImageIcon(getClass().getResource("/shop32x32.png")));
+            Leaderboard_Taskbar.getjLabel1().setForeground(Color.decode("#FFFFFF"));
+            Leaderboard_Taskbar.setBackground(Color.decode("#273142"));
+            Leaderboard_Taskbar.setLogo(new javax.swing.ImageIcon(getClass().getResource("/heartwhite32.png")));
+            Order_Taskbar.setColorDefault("#273142");
+            Leaderboard_Taskbar.setColorDefault("#273142");
+            i=0;
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Abovepanel;
     private javax.swing.JPanel CenterPanel;
     private View_Custom_pannel.Round_Rect_Button_Logo Leaderboard_Taskbar;
+    private javax.swing.JPanel ListTourPanel;
     private javax.swing.JPanel Logo;
     private javax.swing.JPanel LogoPanel;
     private View_Custom_pannel.Round_Rect_Button_Logo Order_Taskbar;
     private javax.swing.JPanel TaskBarPanel;
+    private View_Custom_pannel.Circle circle1;
+    private View_Custom_pannel.ItemOrderTour itemOrderTour1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JPanel panelRoot;
+    private View_Custom_pannel.RoundRect roundRect1;
+    private View_Custom_pannel.SearchField searchField1;
     // End of variables declaration//GEN-END:variables
 }
