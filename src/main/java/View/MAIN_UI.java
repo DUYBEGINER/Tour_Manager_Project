@@ -55,12 +55,15 @@ public class MAIN_UI extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         roundRect1 = new View_Custom_pannel.RoundRect();
+        CardField = new javax.swing.JPanel();
         CenterPanel = new javax.swing.JPanel();
         Abovepanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         ListTourPanel = new javax.swing.JPanel();
         itemOrderTour1 = new View_Custom_pannel.ItemOrderTour();
         jScrollBar1 = new javax.swing.JScrollBar();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
@@ -77,12 +80,22 @@ public class MAIN_UI extends javax.swing.JFrame {
         TaskBarPanel.setPreferredSize(new java.awt.Dimension(240, 1370));
 
         Order_Taskbar.setBackground(new java.awt.Color(39, 49, 66));
+        Order_Taskbar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Order_TaskbarMouseClicked(evt);
+            }
+        });
         TaskBarPanel.add(Order_Taskbar);
 
         Leaderboard_Taskbar.setBackground(new java.awt.Color(39, 49, 66));
+        Leaderboard_Taskbar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Leaderboard_TaskbarMouseClicked(evt);
+            }
+        });
         TaskBarPanel.add(Leaderboard_Taskbar);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("ADD");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
@@ -218,6 +231,8 @@ public class MAIN_UI extends javax.swing.JFrame {
 
         panelRoot.add(LogoPanel, java.awt.BorderLayout.PAGE_START);
 
+        CardField.setLayout(new java.awt.CardLayout());
+
         CenterPanel.setBackground(new java.awt.Color(27, 36, 49));
         CenterPanel.setLayout(new java.awt.BorderLayout());
 
@@ -255,7 +270,30 @@ public class MAIN_UI extends javax.swing.JFrame {
         CenterPanel.add(ListTourPanel, java.awt.BorderLayout.CENTER);
         CenterPanel.add(jScrollBar1, java.awt.BorderLayout.LINE_END);
 
-        panelRoot.add(CenterPanel, java.awt.BorderLayout.CENTER);
+        CardField.add(CenterPanel, "card1");
+
+        jLabel4.setText("FAVOURITES CARD");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(388, 388, 388)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1738, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1192, Short.MAX_VALUE))
+        );
+
+        CardField.add(jPanel1, "card2");
+
+        panelRoot.add(CardField, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(panelRoot, java.awt.BorderLayout.CENTER);
 
@@ -289,6 +327,18 @@ public class MAIN_UI extends javax.swing.JFrame {
         this.ListTourPanel.revalidate(); // Cập nhật layout
         this.ListTourPanel.repaint(); // Vẽ lại panel
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void Order_TaskbarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Order_TaskbarMouseClicked
+        // TODO add your handling code here:
+        CardLayout cardLayout = (CardLayout) CardField.getLayout();
+        cardLayout.show(CardField, "card1");
+    }//GEN-LAST:event_Order_TaskbarMouseClicked
+
+    private void Leaderboard_TaskbarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Leaderboard_TaskbarMouseClicked
+        // TODO add your handling code here:
+        CardLayout cardLayout = (CardLayout) CardField.getLayout();
+        cardLayout.show(CardField, "card2");
+    }//GEN-LAST:event_Leaderboard_TaskbarMouseClicked
     /**
      * @param args the command line arguments
      */
@@ -368,6 +418,7 @@ public class MAIN_UI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Abovepanel;
+    private javax.swing.JPanel CardField;
     private javax.swing.JPanel CenterPanel;
     private View_Custom_pannel.Round_Rect_Button_Logo Leaderboard_Taskbar;
     private javax.swing.JPanel ListTourPanel;
@@ -381,9 +432,11 @@ public class MAIN_UI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JPanel panelRoot;
     private View_Custom_pannel.RoundRect roundRect1;
